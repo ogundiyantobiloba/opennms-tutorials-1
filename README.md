@@ -38,10 +38,10 @@ All of these examples have been tried on Docker Desktop on Ubuntu 22 running in 
 
 They should work on Docker Desktop on Windows.
 
-In order to complete these exercises you will need Java 11, An IDE (Eclipse or Intelij), Maven and git installed on your machine. 
-
-You will also need docker and docker-compose for the containerised exercies. 
+In order to complete these exercises you will need docker and docker-compose for the containerised exercies. 
 The easiest way to get these packages is to install [docker-desktop](https://www.docker.com/products/docker-desktop/) which is available for Windows, Mac or Linux machines. 
+
+You will also need Java 11, An IDE (Eclipse or Intelij), Maven and git installed on your machine. 
 
 ## Getting Started with GIT
 
@@ -55,14 +55,14 @@ You will then be able to clone your fork locally.
 After this you can then proceed to doing the exercises in [session1](../main/session1/).
 
 ### Introduction to GIT
-To be a professional developer, you will need to become proficient at using version control systems.
+Professional developers are proficient at using version control systems.
 Many version control systems (each with their own benefits and drawbacks e.g CVS, Subversion, git) have been popular over the years. 
 Presently one of the most popular, git, was developed by Linus Torvalds to help with the collaborative development of the Linux Kernel.
 
 In recent years many open source projects have migrated their code base to github (https://github.com) which supports a collaborative workflow for team development and sharing of source code using git. 
 
-The principle advantage of git over other version control systems is that it is completely distributed. When you use git you clone a complete local copy of the repository you are cloning (usually referred to as the origin). Y
-ou can develop code and save your changes in your local repository completely off line. 
+The principle advantage of git over other version control systems is that it is completely distributed. When you use git you clone a complete local copy of the repository you are cloning (usually referred to as the origin).
+You can develop code or modify files and save your changes in your local repository completely off line. 
 At a later stage you may wish to push your changes to the on line repository or pull changes others have made into your local copy. 
 
 There are many on line tutorials on using git and it will be worth while spending some time on these to get proficient. e.g.
