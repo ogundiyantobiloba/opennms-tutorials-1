@@ -58,7 +58,16 @@ The OpenNMS documentation covers in some detail the process of [Setting up a pro
 This can be quite daunting for a newcomer and in particular for people just wanting a system for this set of tutorials.
 Fortunately, help is at hand in the form of simple installation scripts and docker-compose examples.
 
-If you want to get started quickly with OpenNMS Horizon on a bare metal system or a virtual machine, you can check out our quick install scripts. This convenient script installs Horizon on Debian or Red Hat compatible systems, running the steps documented in this section of the deployment guide. Use this quick starting point to evaluate and explore how to configure Horizon before moving to more complex distributed environments.
+If you want to get started quickly with OpenNMS Horizon on a bare metal system or a virtual machine, you use the [opennms-forge quick install scripts](https://github.com/opennms-forge/opennms-install). These convenient scripts install a basic Horizon instacne with its depencencies (Java, Postgresql etc) on Debian or Red Hat compatible systems, running the steps documented in the deployment guide. 
+Use this quick starting point to evaluate and explore how to configure Horizon before moving to more complex distributed environments.
+
+For more complex examples, you can also try the various docker-compose examples provided in the [OpenNMS Forge Stack Play repository](https://github.com/opennms-forge/stack-play).
+A variety of examples are provided here which illustrate configurations for quite complex OpenNMS deployments. 
+The Stack Play exmaples are kept up to date with the latest OpenNMS horizon releases and also with the latest supported releases of grafana, postgres, kafka etc.,
+
+The tutorials in this repo are in part derived from the stack play examples and will give you a good starting point for understanding both traditional and containerised OpenNMS deployments.
+
+
 
 
 
