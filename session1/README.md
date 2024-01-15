@@ -42,6 +42,8 @@ This makes Meridian a more suitable choice for a production environment.
 
 This tutorial and it's examples have currently been designed to work with Horizon 32 but the principles covered will also apply to Meridian 2023.
 
+As you work through this tutorial you should also familiarise yourself with the relevent documentation of each feature covered as the documentation will provide more details of options which aren't incliuded in the examples.
+
 ### Other Sources of Information
 
 
