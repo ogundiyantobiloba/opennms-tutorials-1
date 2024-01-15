@@ -54,6 +54,11 @@ In addition, the [OpenNMS Mattermost chat](https://chat.opennms.com/) channels a
 
 ## Getting Started Tutorial
 
+The OpenNMS documentation covers in some detail the process of [Setting up a production Horizon Instance](https://docs.opennms.com/horizon/32/deployment/core/introduction.html).
+This can be quite daunting for a newcomer and in particular for people just wanting a system for this set of tutorials.
+Fortunately, help is at hand in the form of simple installation scripts and docker-compose examples.
+
+If you want to get started quickly with OpenNMS Horizon on a bare metal system or a virtual machine, you can check out our quick install scripts. This convenient script installs Horizon on Debian or Red Hat compatible systems, running the steps documented in this section of the deployment guide. Use this quick starting point to evaluate and explore how to configure Horizon before moving to more complex distributed environments.
 
 
 
