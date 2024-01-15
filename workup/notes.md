@@ -3,6 +3,25 @@
 -	Time zone = From 10:00 AM to 12:00 PM CET
 -	Topics:
 -	ONMS Fundamental – product standard features:
+
+Session 1
+overview of opennms
+docker compose example 1
+importing a network - discovery
+snmp community strings
+importing a network - requisitions
+
+exercise
+add an extra node one in each network and modify the requisiton to import the nodes
+
+Session 2
+traps
+events
+alarms 
+
+
+
+
 Events 
 Alarms 
 SNMP 
