@@ -42,13 +42,17 @@ This makes Meridian a more suitable choice for a production environment.
 
 This tutorial and it's examples have currently been designed to work with Horizon 32 but the principles covered will also apply to Meridian 2023.
 
-As you work through this tutorial you should also familiarise yourself with the relevent documentation of each feature covered as the documentation will provide more details of options which aren't incliuded in the examples.
+As you work through these tutorials you should also familiarise yourself with the relevent documentation of each feature covered as the documentation will provide more details of options which aren't included in the examples and also any minor differences between Meridian and Horizon.
 
 ### Other Sources of Information
 
+Over the years, many contributors have added insights or examples and these are often available by searching the [OpenNMS Discourse Server](https://opennms.discourse.group/).
+
+In addition, the [OpenNMS Mattermost chat](https://chat.opennms.com/) channels are a great place to ask questions of the community.
+
+## Getting Started Tutorial
 
 
 
 
 
-## Tutorial
