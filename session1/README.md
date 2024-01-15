@@ -16,13 +16,14 @@
 
 OpenNMS is the world first enterprise and service provider grade service assurance platform created using the open source model.
 OpenNMS was first published in the [sourceforge opennms project](https://sourceforge.net/projects/opennms/) over 20 years ago. 
-More recently, it has been maintained in the official [github opennms project](https://github.com/OpenNMS/opennms)
+More recently, it has migrated and is now maintained maintained in the official [github opennms project](https://github.com/OpenNMS/opennms)
 Since that time the number of users and contributors has grown into a world wide community of people who use OpenNMS for a variety of purposes.
 
-* service providers - use multiple instances of OpenNMS as a service assurance components within in their operations support stack
-* large enterprises - rely on on OpenNMS as their primary netowrk monitoring platform for  very large scale enterprise networks
-* small enterprises - significnalty reduce the work load for their IT team by monitoring their networks and services using OpenNMS
-* OEM vendors - package OpenNMS as an IP mediation layer within their own Network or Element management solution set. 
+* Service Providers - use multiple instances of OpenNMS as a service assurance components within in their operations support stack
+* Large Enterprises - rely on on OpenNMS as their primary netowrk monitoring platform for  very large scale enterprise networks
+* Small Enterprises - significnalty reduce the work load for their IT team by monitoring their networks and services using OpenNMS
+* OEM Vendors - package OpenNMS as an IP mediation layer within their own Network or Element management solution set.
+* Researchers and Educators - leaverage OpenNMS for researching or teaching topics in Service Assurance for next generation networks.
 
 An overview of the major capabilities of OpenNMS is provided in the following slide presentation [OpenNMS_Overview-v1.0.pdf](../session1/OpenNMS_Overview-v1.0.pdf)
 
@@ -41,7 +42,7 @@ New major releases of Meridian come out once a year and each major release is su
 API's and configurations devloped for a given Meridian release are guaranteed not to require updating over the 3 year life of the platform.
 This makes Meridian a more suitable choice for a production environment.
 
-This tutorial and it's examples have currently been designed to work with Horizon 32 but the principles covered will also apply to Meridian 2023.
+This tutorial and it's examples have currently been designed to work with [Horizon 32](https://docs.opennms.com/horizon/32/index.html) but the principles covered will also apply to [Meridian 2023](https://docs.opennms.com/meridian/2023/index.html).
 
 As you work through these tutorials you should also familiarise yourself with the relevent documentation of each feature covered as the documentation will provide more details of options which aren't included in the examples and also any minor differences between Meridian and Horizon.
 
