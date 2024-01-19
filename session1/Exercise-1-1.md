@@ -8,7 +8,7 @@ All of the examples in this set of tutorials use docker compose to create an Ope
 
 The first tutorial example use the docker compose project in the folder [minimal-minion-activemq](../session1/minimal-minion-activemq)
 
-The  [docker-compose.yml](../session1/minimal-minion-activemq/docker-compose.yml) file configures an opennms horizon with its database, an opennms minion and six test servers running netsnmp.
+The  [docker-compose.yaml](../session1/minimal-minion-activemq/docker-compose.yaml) file configures an opennms horizon with its database, an opennms minion and six test servers running netsnmp.
 
 The configurations for each of the containers are held in separate folders under the [container-fs](../session1/minimal-minion-activemq/container-fs) folder
 
