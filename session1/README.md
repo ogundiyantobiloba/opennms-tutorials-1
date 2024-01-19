@@ -1,5 +1,7 @@
 # Session 1 Introduction to OpenNMS
 
+[Main Menu](../README.md) | [Session 1](../session1/README.md)
+
 ## Contents
 
 1. What is OpenNMS
@@ -66,6 +68,10 @@ A variety of examples are provided there which illustrate configurations for qui
 The Stack Play exmaples are kept up to date with the latest OpenNMS horizon releases and also with the latest supported releases of grafana, postgres, kafka etc.
 
 The tutorials in this repo are in part derived from the stack play examples and will give you a good starting point for understanding both traditional and containerised OpenNMS deployments.
+
+We are now going to start our first OpenNMS example and begin to find our way around the OpenNMS system.
+
+Please proceed to [Exercise-1-1](../session1/Exercise-1-1.md)
 
 
 
