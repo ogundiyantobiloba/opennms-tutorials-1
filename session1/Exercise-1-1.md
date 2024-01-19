@@ -171,7 +171,45 @@ Discovery follows the following order
 
 * OpenNMS first ping's all of the addresses in the range. 
 * If a ping to an IP address responds, a 'new suspect' event is generated and OpenNMS will do a port scan of the IP address. Any open ports will be associated with known services for that port on that address.
+* reverse DNS lookup is used to associate node names with the ip addresses.
 * If SNMP is discovered on port 161, then OpenNMS will interrogate the SNMP agent to find out what it  can about the device. 
 
+After a few minutes, OpenNMS should have discovered all of the servers in the range. 
+
+You can examine the discovered nodes on the info/nodes page
+
+![alt text](../session1/images/nodes.png "Figure nodes.png")
+
+Try adding any other IP addresses of equipment you want to discover.
+
+The discovery configuration seen on the UI is backed by a file discovery-configuration.xml in the OpenNMS /etc directory. 
+Examine this using the following steps.
+
+```
+docker compose exec horizon bash
+opennms@horizon:~$ cd etc
+opennms@horizon:~/etc$ cat discovery-configuration.xml
+
+<discovery-configuration xmlns="http://xmlns.opennms.org/xsd/config/discovery" location="Default" packets-per-second="1.0" initial-sleep-time="30000" restart-sleep-time="86400000">
+   <specific retries="1" timeout="2000" foreign-source="selfmonitor">127.0.0.1</specific>
+   <include-range retries="1" timeout="2000">
+      <begin>172.20.0.1</begin>
+      <end>172.20.0.254</end>
+   </include-range>
+   <include-range location="minion1-location" retries="1" timeout="2000">
+      <begin>172.20.2.1</begin>
+      <end>172.20.2.254</end>
+   </include-range>
+</discovery-configuration>opennms@horizon:~/etc$
+
+```
+You can see that the ranges are configured in the `/etc/discovery-configuration.xml` file
+
+
+## Conclusion
+
+In this session we have provided a general overview of OpenNMS and run a docker compose example which allows us to illustrate discovering and managing a small network.
+
+In the following sessions we will begin to look more closely at openNMS configuration
 
 
