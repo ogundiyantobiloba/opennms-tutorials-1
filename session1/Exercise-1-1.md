@@ -59,7 +59,7 @@ At which point, OpenNMS has booted correctly.
 
 You should now be able to browse to the OpenNMS terminal on
 
-http://localhost/opennms
+http://localhost:8980/opennms
 
 or possibly if running docker desktop in windows with IPv6
 
@@ -78,14 +78,100 @@ docker compose down
 ```
 This will preserve the database volume for when you next boot OpenNMS
 
-If you want to delete the database and start OpenNMS from scratch use
+If you want to delete the database and start OpenNMS from scratch next time use
 ```
 docker compose down -v
 ```
 
 ## Example network
 
-The docker compose example defines an example network illustrated in the following image
+The docker compose [docker-compose.yaml](../session1/minimal-minion-activemq/docker-compose.yaml) example creates an example network illustrated in the following image
 
 ![alt text](../session1/images/examplenetwork1.drawio.png "Figure examplenetwork1.drawio.png")
+
+The ip addresses of all of the nodes have been explicitly defined in this example rather than being randomly allocated by docker.
+
+You will see there are two network segments.
+
+```
+ N000: 172.20.0.0/24
+ N001: 172.20.2.0/24
+```
+
+
+The OpenNMS horizon server is on N000 and has visibility of two of the servers running NetSNMP.
+
+```
+netsnmp_1_1 172.20.0.101
+netsnmp_1_2 172.20.0.102
+```
+Any nodes managed directly and hence on the same subnet as the horizon server are said to be in the `default` location.
+
+You can open a terminal session log into the horizon server and ping the other services on the same subnet using the same service names defined in docker compose. 
+Try the following.
+
+```
+docker compose exec horizon bash
+opennms@horizon:~$ ping netsnmp_1_1
+
+PING netsnmp_1_1 (172.20.0.101): 56 data bytes
+64 bytes from 172.20.0.101: icmp_seq=0 ttl=64 time=0.164 ms
+
+# Ctrl-C escapes from the ping
+
+exit # leaves the container
+```
+
+An OpenNMS minion, minion1, is defined which  has two network interfaces.
+
+```
+172.20.0.25 is able to see OpenNNMS horizon on N000 
+172.20.2.25 is able to see the two NetSNMP servers on N002.
+```
+
+You can log into the minion and ping the other two servers.
+
+```
+docker compose exec minion1 bash
+minion@minion1:~$ ping  netsnmp_2_1
+PING netsnmp_2_1 (172.20.2.101): 56 data bytes
+64 bytes from 172.20.2.101: icmp_seq=0 ttl=64 time=0.056 ms
+
+```
+
+The minion is set up to be in the `minion1-location` location
+
+(In this example the minion1 communicates with the horizon server using ActiveMQ but we will look at this specific configuration later).
+
+## discovering the network with OpenNMS
+
+We will now show how to discover a network over a range of IP addresses
+
+Log into the OpenNMS UI as shown above and navigate to the admin page by selecting the cogs.
+
+![alt text](../session1/images/AdminPage.png "Figure AdminPage.png")
+
+Select 'Configure Discovery' and enter two discovery ranges
+
+```
+172.20.0.1  172.20.0.254 with location  default
+172.20.2.1  172.20.2.254 with location  minion1-location
+```
+Then select Save and Restart Discovery
+
+![alt text](../session1/images/DiscoveryConfig.png "Figure DiscoveryConfig.png")
+
+![alt text](../session1/images/DiscoveryRange.png "Figure DiscoveryRange.png")
+
+Discovery will take 30 seconds to start but once started, the system will sequentially poll all the addresses in a given discovery range.
+If the location is set to `default`, the horizon server will do a direct scan of the local network.
+If the location is set to the location of the minion i.e. `minion1-location`, the minion will do a scan of the selected address range.
+
+Discovery follows the following order
+
+* OpenNMS first ping's all of the addresses in the range. 
+* If a ping to an IP address responds, a 'new suspect' event is generated and OpenNMS will do a port scan of the IP address. Any open ports will be associated with known services for that port on that address.
+* If SNMP is discovered on port 161, then OpenNMS will interrogate the SNMP agent to find out what it  can about the device. 
+
+
 
