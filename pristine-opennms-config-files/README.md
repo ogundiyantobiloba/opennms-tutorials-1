@@ -2,13 +2,13 @@
 
 For convenience in these tutorials, the following folders are provided with the un-modified configuration files shipped with OpenNMS Horizon 32.0.5.
 
-[share/etc-pristine](../opennms-config-files/etc-pristine)
+[etc-pristine](../pristine-opennms-config-files/etc-pristine)
 
-[share/xsds](../opennms-config-files/xsds)
+[xsds](../pristine-opennms-config-files/xsds)
 
 These files are provided to help you create or modify new configurations for the tutorials.
 
-Within any OpenNMS installation including containers, the running configuration is stored in the directory
+Within any OpenNMS installation, including containers, the running configuration is always stored in the directory
 
 ```
 <opennms-home>/etc
