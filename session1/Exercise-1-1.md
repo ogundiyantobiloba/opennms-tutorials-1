@@ -72,6 +72,8 @@ password admin
 ```
 (on a production system you should change the admin password on first log in)
 
+## Closing docker and preserving the database
+
 When you have finished, you should shutdown with 
 ```
 docker compose down
