@@ -182,6 +182,18 @@ You can examine the discovered nodes on the info/nodes page
 
 ![alt text](../session1/images/nodes.png "Figure nodes.png")
 
+If you click on `show interfaces` you will see the interfaces associated with each node.
+
+![alt text](../session1/images/nodesandinterfaces.png "Figure nodesandinterfaces.png")
+
+Note that 172.20.0.1 and 172.20.2.1 are the discovered docker gateway interfaces on the N000 and N001 networks.
+
+172.20.0.25 is the N000 network interface discovered on minion1. 
+This has a docker dns entry of minion1.minimal-minion-activemq_N000    
+
+127.20.2.25 is the N001 network interface discovered on minion1. 
+THis has no docker dns entry and so is just named after it's ip address
+
 Try adding any other IP addresses of equipment you want to discover.
 
 The discovery configuration seen on the UI is backed by a file discovery-configuration.xml in the OpenNMS /etc directory. 
