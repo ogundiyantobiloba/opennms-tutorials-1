@@ -144,6 +144,26 @@ services:
       N000:
         ipv4_address: 172.20.0.102
         
+  # snmpsim container in network N000 - chubb MIB
+  chubb_camera_01:
+#    image: ${DOCKER_REGISTRY:-docker.io}/tandrup/snmpsim:${SNMPSIM_VERSION:-v0.4}
+    image: onms-training/snmpsim
+    build: ./container-fs/snmpsim/
+    container_name: chubb_camera_01
+    hostname: chubb_camera_01
+    environment:
+      EXTRA_FLAGS: "--v3-user=testing --v3-auth-key=testing123"
+    volumes:
+      - ./container-fs/snmpsim/data/chubb.snmprec:/usr/local/snmpsim/data/chubb.snmprec
+      - ./container-fs/snmpsim/data/public.snmprec:/usr/local/snmpsim/data/public.snmprec
+      - ./container-fs/snmpsim/mibs:/usr/local/snmpsim/mibs
+    ports:
+      - "11561:161/udp"
+    networks:
+      N000:
+        ipv4_address: 172.20.0.103
+
+        
   # snmp containers in network N001
   netsnmp_2_1:
     image: polinux/snmpd
