@@ -27,6 +27,8 @@ Please read and follow the Getting Started instructions before doing anything el
 
 [myPracticeCourseWork](../main/myPracticeCourseWork) This is where you should create and save your own practice projects.
 
+[pristine-opennms-config-files](../main/pristine-opennms-config-files/) Untouched OpenNMS configuration files for reference.
+
 # Getting Started
 Before doing anything else you will need to follow these getting started instructions to install the required software.
 
