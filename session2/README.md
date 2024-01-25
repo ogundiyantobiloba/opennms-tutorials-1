@@ -29,10 +29,7 @@ An RPM based installation  (RHEL, Rocky Linux, Centos etc) will follow this exac
 
 An APT based installation (Debian, Ubuntu etc)  follows the same pattern but instead of real folders, it follows the Debian directory practices and uses symbolic links to the etc, logs and share directories.
 
-OpenNMS Docker containers follow a similar pattern.
-(Earlier containers were based on Centos but later containers have used Ubuntu as the based image).
-
-However you need to follow some conventions when overlaying configuration files on an OpenNMS container.
+OpenNMS Docker containers follow a similar pattern with earlier containers based on Centos and later containers using Ubuntu as the based image. However it is not enough just to overwrite the default container directories as the containers hav been designed for easy configuration and you need to additional conventions when injecting configuration files into an OpenNMS container.
 This is because, when the conteiner starts
 
 
