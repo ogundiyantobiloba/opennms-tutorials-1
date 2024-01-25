@@ -46,18 +46,17 @@ These xsd definitions are generated from the jaxb annotated code during the buil
 **NOTE**
 
 For these tutorials, we have provided a folder of untouched xml configurations and associated xsds in [pristine-opennms-config-files](../../main/pristine-opennms-config-files/)
-
 You can copy and modify these as you need to in the docker compose configuration overlays.
 
 ---
 
-## docker container mapping
+## Docker Container File Mapping
 
 OpenNMS Docker containers follow a similar pattern to the standard Linux installations, with earlier containers based on Centos and later containers using Ubuntu as the based image. 
 
 However it is not enough just to overwrite the default container directories as the containers have been designed for easy configuration using environment variables and you need to follow additional conventions when injecting configuration files into an OpenNMS container.
 
-### environment variables and confd
+### Environment variables and confd
 
 OpenNMS containers use [confd](https://github.com/kelseyhightower/confd/tree/master) templates to create some etc configurations on startup based on injected environment variables and templates. 
 
@@ -81,14 +80,16 @@ If you overlay `opennms-datasources.xml`, the environment variables will not be 
 
 The minion containers use an injected configuration file [/opt/minion/minion-config.yaml](../session2/minimal-minion-activemq/container-fs/minion1/opt/minion/minion-config.yaml) to set up the internal minion /etc/*.cfg properties.
 
-### overlay files 
+### Overlay Configuration Files 
 
 Secondly, on startup, OpenNMS core containers copy any files in `/opt/opennms-overlay/` and replace the default files in `/opt/opennms/etc/`
 
 So in all of the examples, the relevant files are modified in the docker compose project and injected into the container `/opt/opennms-overlay/` so that they will be copied to the `/opt/opennms/etc` folder before OpenNMS starts.
 
-We needed to cover this introduction to configuration so that you understand how the examples relate to your production OpenNMS installation. 
-We will have more to say about configuration as we proceed with the course.
+Finally, you should note that any OpenNMS Plugins can be injected into an OpenNMS instance before start up by copying the plugin files into the `/container-fs/horizon/opt/opennms/deploy` directory which maps to the karaf deploy directory within OpenNMS.
+
+We needed to cover this introduction to configuration file locations so that you understand how the examples relate to your production OpenNMS installation. 
+We will have a lot more to say about configuration as we proceed with the course.
 
 ## Provisioning Requisitions
 
