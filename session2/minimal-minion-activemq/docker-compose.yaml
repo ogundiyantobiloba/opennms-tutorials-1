@@ -155,6 +155,7 @@ services:
       EXTRA_FLAGS: "--v3-user=testing --v3-auth-key=testing123"
     volumes:
       - ./container-fs/snmpsim/data/chubb.snmprec:/usr/local/snmpsim/data/chubb.snmprec
+      # note empty public.snmprec so that there is no response to a community name public request
       - ./container-fs/snmpsim/data/public.snmprec:/usr/local/snmpsim/data/public.snmprec
       - ./container-fs/snmpsim/mibs:/usr/local/snmpsim/mibs
     ports:
