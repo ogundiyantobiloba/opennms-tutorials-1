@@ -23,7 +23,7 @@ The cinfiguration files being modified are exactly the same.
 Before we proceed it is important to understand the main directory locations in an OpenNMS installation and how these are mapped to the example docker compose projects which use OpenNMS docker containers.
 The following figure shows the folders in a typical OpenNMS installation installed on a Linux system using a package manager.
  
-![alt text](../session2/images/horizon-docker-files.png "Figure horizon-docker-files.png")
+![alt text](../session2/images/opennmsFolders.drawio.png "Figure opennmsFolders.drawio.png")
 
 An RPM based installation  (RHEL, Rocky Linux, Centos etc) will follow this exact pattern .
 
