@@ -167,9 +167,10 @@ We have also seen that internally a requisition is represented as an XML documen
 
 Within OpenNMS nodes are given a sequential database id as they are provisioned, but externally, the node is identified by it’s Foreign Source and Foreign ID. 
 
-It is also possible to use an api to provision OpenNMS through the requisition mechanism.
-Requisitions can be POSTe into OpenNMS or OpenNMS can make a ReST GET request for a requisition. 
-It is also possible to PUT a change to a requisition already stored within OpenNMS but a requisition is only loaded into the database when a synchronise event is called. 
+It is also possible to use a ReST api to provision OpenNMS through the requisition mechanism.
+
+Requisitions can be POSTed into OpenNMS or OpenNMS can make a ReST GET request for a requisition. 
+It is also possible to PUT a change to a requisition already stored within OpenNMS but a requisition is only loaded into the database when a synchronise event is sent. 
 A separate ReST API can also provision the SNMP configurations.
 
 Provisioning can be regularly scheduled or prompted through a reload requisition event injected through the OpenNMS ReST API. 
@@ -178,40 +179,3 @@ In practice each requisition should be limited to around 5000 nodes.
 For more information on provisioning see [Provisioning Integration](https://docs.opennms.com/horizon/30/operation/provisioning/integration.html)
 
 We will cover provisioning and  requisitions in more detail in a later session. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-It is also important to set community strings
-
-we will look at provisioning OpenNMS using requisitions
-
-
-
-
-
-
-
-
-
-
-Provisioning  requisitions
-netsim container
-SNMP Community strings
-
-exercise 1
-note docker compose down -v first
