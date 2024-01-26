@@ -93,18 +93,22 @@ We will have a lot more to say about configuration as we proceed with the course
 
 ## Provisioning Requisitions
 
-TBC
-Provisioning  requisitions
-netsim container
-SNMP Community strings
+In [Session 2](../session2/README.md) we looked at how OpenNMS can scan a network and add any devices it discovers. 
 
-exercise 1
-note docker compose down -v first
+OpenNMS uses reverse DNS to make a good guess for each node name and sets up the device to be monitored in a reasonable way.
+If a node has SNMP running on port 162, OpenNMS use the default SNMP `public` community strings to request information from the node. 
+
+In many cases, however, users already know what devices and service they have and it is important to name and apply metadata or categories to these devices in a consistent way which aligns with their network inventory. 
+Often it is also important for security to use secret SNMP community strings to communicate with the nodes.
+
+In [Exercise2-1](../session2/Exercise2-1.md) we will look at how device information and SNMP community strings can be provisioned in OpenNMS.
 
 
 ## Events, Alarms and Traps
 
-TBC
+In [Exercise2-2](../session2/Exercise2-2.md) we will do some simple exercises with traps and alarms
+
+TO BE COMPLETED
 
 Node down node up events and traps
 Node down node up alarms

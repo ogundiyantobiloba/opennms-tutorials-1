@@ -209,7 +209,7 @@
         <KeyValuePair key="asterisk-gateway"     value="WARN" />
         <KeyValuePair key="archiver"             value="WARN" />
         <KeyValuePair key="bsmd"                 value="WARN" />
-        <KeyValuePair key="collectd"             value="DEBUG" />
+        <KeyValuePair key="collectd"             value="WARN" />
         <KeyValuePair key="correlator"           value="WARN" />
         <KeyValuePair key="discovery"            value="WARN" />
         <KeyValuePair key="eventd"               value="WARN" />
