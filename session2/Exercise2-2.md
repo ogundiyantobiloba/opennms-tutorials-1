@@ -66,6 +66,7 @@ With an SNMP V1 Trap you can specify the source IP address and in this case we h
 
 ---
 **NOTE**
+
 SNMP v1 allows the source IP address to be set as a varbind but  with SNMP v2 traps, you can't specify the source IP as a varbind.
 In this case the UDP message must come from the actual device IP address set by the operating system.
 See an explanation here https://stackoverflow.com/questions/76741423/pysnmp-impossible-to-change-source-address
@@ -79,7 +80,7 @@ http://localhost:8980/opennms/event/list
 
 ![alt text](../session2/images/onms-eventlist1.png "Figure onms-eventlist1.png")
 
-On a separate tab, open the OpenNMS alarm list ad you should see a single WARNING Alarm Agent Interface Down (linkDown Trap)  with a count of events.
+On a separate tab, open the OpenNMS alarm list and you should see a single WARNING Alarm Agent Interface Down (linkDown Trap)  with a count of events.
 
 ![alt text](../session2/images/onms-alarmlist1.png "Figure onms-alarmlist1.png")
 
@@ -89,17 +90,11 @@ You should see a NORMAL severity link up event in the event list
 
 You should also see that the corresponding alarm in the alarm list is now CLEARED and after a few minutes, it will be deleted from the list.
 
+## generating events using netsnmp
+
 
 
 
 
 TO BE COMPLETED
 
-Node down node up events and traps
-Node down node up alarms
-
-Exercise - happiness alarm
-happines alarm
-event from trap
-event from UI
-event from ReST / Rester
