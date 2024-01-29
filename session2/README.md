@@ -43,7 +43,7 @@ cd /opt/opennms/etc/
 git init
 git tag -a v1.0 -m 'Initial base configuration of OpenNMS 32.0.4'
 ```
-After this, you can commit and annotate any further changes you make.
+After this, you can commit, tag and annotate any further changes you make.
 
 In containerised installs, you should version control the configurations injected into the container.
 You will need to make sure that the files you are overlaying are baselined against the version of OpeNNMS in the selected container otherwise the system may not start.
@@ -116,30 +116,25 @@ In [Exercise2-1](../session2/Exercise2-1.md) we will look at how device informat
 
 ## Events, Alarms and Traps
 
-In [Exercise2-2](../session2/Exercise2-2.md) we will do some simple exercises with traps and alarms
+OpenNMS is an event driven system.
+This means that the many processes running in OpenNMS primarily communicate with each other using OpenNMS events. 
+OpenNMS internal events correspond to changes of state within the system. 
+Example of these you will have already seen are events surrounding the discovery of new devices or the import of requisitions.
+Other examples would be node down events where OpenNMS cannot communicate with a device threshold crossing events where the system has detected that a collected value has crossed a user set threshold.
 
-TO BE COMPLETED
+Events may also be externally generated from devices using standard event protocols communicating with OpenNMS through the network; for example SNMP traps or SYSLOGS.
+Finally, it is also possible to directly inject events into OpenNMS using the ReST API.
 
-Node down node up events and traps
-Node down node up alarms
+The majority of events are also persisted in the OpenNMS event table and may then be searched and viewed through the UI.
+However it is also possible to not persist certain events when they are only used for inter-process communication.
 
-Exercise - happiness alarm
-happines alarm
-event from trap
-event from UI
-event from ReST / Rester
+Events tell us something happened at a certain point of time but they don't record the current state of a system.
+Often devices will repeatedly send multiple events (traps or logs) when they have detected a problem. 
+This can lead to an 'Event Storm' where it is very hard for a user to deal with so many incoming events.
 
-Exercise - parsing a mib for events and creating alarms - chubb mib
+OpenNMS uses Alarms to correlate events into a current state which makes it much easier to see what the current status of a device, service or network is. 
+Some events may raise an alarm and some events may cause an alarm to clear. 
+Each alarm will maintain count and a list of events contributing to the alarm state. 
 
-```
-[root@netsnmp_1_1 /]# snmpwalk -v 2c -On -c chubb chubb_camera_01
-.1.3.6.1.2.1.1.1.0 = STRING: M1 (TUNNEL) 0/2L
-.1.3.6.1.2.1.1.2.0 = OID: .1.3.6.1.4.1.52330.1.6
-.1.3.6.1.2.1.1.3.0 = Timeticks: (404669) 1:07:26.69
-.1.3.6.1.2.1.1.4.0 = STRING: Highways England - 03001235000
-.1.3.6.1.2.1.1.5.0 = STRING: 00021,20002
-.1.3.6.1.2.1.1.6.0 = STRING: 0002L
-[root@netsnmp_1_1 /]# snmpwalk -v 2c -On -c public chubb_camera_01
-```
-RUN echo "deb http://archive.debian.org/debian stretch main" > /etc/apt/sources.list
 
+In [Exercise2-2](../session2/Exercise2-2.md) we will do some simple to help explain OpenNNMS traps and alarms
