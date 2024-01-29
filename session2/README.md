@@ -36,8 +36,18 @@ This always allows you to compare any changes with the default state.
 
 In a non-containerised install, we advise users to version control the `/opt/opennms/etc/` directory so that you can track all changes made locally. 
 A simple but effective approach to this is to turn the `/opt/opennms/etc/` directory into a git repository and base line on the untouched files. 
+You can do this using the following commands:
+
+```
+cd /opt/opennms/etc/
+git init
+git tag -a v1.0 -m 'Initial base configuration of OpenNMS 32.0.4'
+```
+After this, you can commit and annotate any further changes you make.
 
 In containerised installs, you should version control the configurations injected into the container.
+You will need to make sure that the files you are overlaying are baselined against the version of OpeNNMS in the selected container otherwise the system may not start.
+We will talk about updating an installation in a later module.
 
 The `/opt/opennms/share/xsds` directory contains the XML Schema Definitions for the xml files. 
 These xsd definitions are generated from the jaxb annotated code during the build of OpenNMS and provide detailed documentation for all of the fields in the xml configuration files.
