@@ -137,4 +137,4 @@ Some events may raise an alarm and some events may cause an alarm to clear.
 Each alarm will maintain count and a list of events contributing to the alarm state. 
 
 
-In [Exercise2-2](../session2/Exercise2-2.md) we will do some simple to help explain OpenNNMS traps and alarms
+In [Exercise2-2](../session2/Exercise2-2.md) we will do some simple examples to help explain OpenNNMS traps and alarms.
