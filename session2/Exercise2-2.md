@@ -70,6 +70,7 @@ With an SNMP V1 Trap you can specify the source IP address and in this case we h
 SNMP v1 allows the source IP address to be set as a varbind but  with SNMP v2 traps, you can't specify the source IP as a varbind.
 In this case the UDP message must come from the actual device IP address set by the operating system.
 See an explanation here https://stackoverflow.com/questions/76741423/pysnmp-impossible-to-change-source-address
+
 ---
 
 ![alt text](../session2/images/mibbrowser-sendlinkdowntrap.png "Figure mibbrowser-sendlinkdowntrap.png")
