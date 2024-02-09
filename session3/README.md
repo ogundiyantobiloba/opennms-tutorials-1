@@ -5,6 +5,11 @@
 
 TBD
 
+## todo 
+
+Event Translator
+event from UI
+event from ReST / Rester
 
 
 Exercise - parsing a mib for events and creating alarms - chubb mib
