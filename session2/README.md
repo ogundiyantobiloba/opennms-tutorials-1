@@ -103,7 +103,7 @@ We will have a lot more to say about configuration as we proceed with the course
 
 ## Provisioning Requisitions
 
-In [Session 2](../session2/README.md) we looked at how OpenNMS can scan a network and add any devices it discovers. 
+In [Session 1](../session1/README.md) we looked at how OpenNMS can scan a network and add any devices it discovers. 
 
 OpenNMS uses reverse DNS to make a good guess for each node name and sets up the device to be monitored in a reasonable way.
 If a node has SNMP running on port 162, OpenNMS use the default SNMP `public` community strings to request information from the node. 
