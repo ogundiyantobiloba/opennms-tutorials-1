@@ -97,7 +97,7 @@ We will return to the LinkDown trap in a future exercise but now we want to see 
 
 ## generating an unknown trap using mibbrowser
 
-In the Mibbrowser, we need to define send a trap using the following configuration.
+In the Mibbrowser, we need to define and send a trap using the following configuration.
 
 | Snmp Trap Setting | value |
 | ----------------- | ------ |
@@ -113,11 +113,11 @@ In the Mibbrowser, we need to define send a trap using the following configurati
 ![alt text](../session2/images/sendTrap1.png "Figure sendTrap1.png")
 Lets call this 
 
-`example trap definition 1 RAISE` event when varbind 3 has a value of 1
+`example trap definition 1 RAISE` event when varbind 3 (OID .1.3.6.1.4.1.52330.6.2.5.0) has a value of 1
 
 and 
 
-`example trap definition 1 CLEAR` event when varbind 3 has a value of 0
+`example trap definition 1 CLEAR` event when varbind 3 (OID .1.3.6.1.4.1.52330.6.2.5.0) has a value of 0
 
 Try sending these two traps to horizon.
 When you look at the event list, you will see a new `unformatted enterprise event` for netsnmp_1_1 with the following contents:
@@ -152,7 +152,7 @@ Here is a "mask" element definition that matches this event, for use in event co
     </mask> 
 ```
 
-## generating events using netsnmp
+## Generating events using netsnmp
 
 MibBrowser is very useful but we actually want to simulate v2 traps coming from devices within our docker network.
 In this case we will use NetSNMP to send traps from the command line. 
@@ -170,20 +170,20 @@ So in these examples, Provided a varbind OID is set, it doesn't matter what the 
 
 The following breaks down the content of a trap to be sent using snmptrap:
 
-````
+```
 snmptrap -v 2c         \ # sets the trap version to v2c         -c public     \ # sets the community string to public         meridian:1162 \ # host:port. If port is omitted, 162 will be used         ""            \ # supplying no value by using two single quotes '' uses the operating system up time. Alternatively the format is  36:2:40:51.67 which equates to 36 days, 2 hours, 40 minutes and 51.67 seconds          .1.3.6.1.4.1.52330.6.2.0.1 \ #  trapoidd          .1.3.6.1.4.1.52330.6.2.7.0  s xxxx  \ # sequence of OID TYPE VALUE Here s is a string value xxxx          .1.3.6.1.4.1.52330.6.2.1.0  i 0  \ # here i is an integer of value 0           .1.3.6.1.4.1.52330.6.2.5.0  i 1    # here i is an integer of value 1
-````
+```
 
 Putting this all together we get 
 
-````
+```
 snmptrap -v 2c -c public meridian:1162 ""  .1.3.6.1.4.1.52330.6.2.0.1  .1.3.6.1.4.1.52330.6.2.7.0  s xxxx   .1.3.6.1.4.1.52330.6.2.1.0 i 0  .1.3.6.1.4.1.52330.6.2.5.0 i 1
-````
-This sends an SNMP v2c trap of type .1.3.6.1.4.1.52330.6.2.0.1 with the first varbind as a string, the second as an integer 0 and the third as an integer 1
+```
+This sends an SNMP v2c trap with an OID .1.3.6.1.4.1.52330.6.2.0.1 and with the first varbind as a string, the second as an integer 0 and the third as an integer 1
 
 Try sending this trap to opennms horizon from the netsnmp_1_1 container
 
-````
+```
 # log into the netsnmp_1_1 container
 
 docker compose exec netsnmp_1_1 bash
