@@ -6,7 +6,7 @@
 1. OpenNMS Configuration Overview
 * opennms configuration directories
 * configuring a docker image
-1. OpenNMS Events and Alarms and Traps
+2. OpenNMS Events and Alarms and Traps
 * basic events alarms and traps
 * parsing a mib and creating an event configuration
 
