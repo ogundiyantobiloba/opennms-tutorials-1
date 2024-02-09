@@ -1,7 +1,7 @@
 
 # Exercise 2-3 OpenNMS Event Configuration
 
-[Main Menu](../README.md) | [Session 2](../session2/README.md) | [Exercise-2-3](../session1/Exercise-2-3.md)
+[Main Menu](../README.md) | [Session 2](../session2/README.md) | [Exercise-2-3](../session2/Exercise-2-3.md)
 
 ### OpenNMS Event Configuration
 

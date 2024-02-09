@@ -111,7 +111,7 @@ If a node has SNMP running on port 162, OpenNMS use the default SNMP `public` co
 In many cases, however, users already know what devices and service they have and it is important to name and apply metadata or categories to these devices in a consistent way which aligns with their network inventory. 
 Often it is also important for security to use secret SNMP community strings to communicate with the nodes.
 
-In [Exercise2-1](../session2/Exercise2-1.md) we will look at how device information and SNMP community strings can be provisioned in OpenNMS.
+In [Exercise-2-1](../session2/Exercise-2-1.md) we will look at how device information and SNMP community strings can be provisioned in OpenNMS.
 
 
 ## Events, Alarms and Traps
@@ -137,8 +137,8 @@ Some events may raise an alarm and some events may cause an alarm to clear.
 Each alarm will maintain count and a list of events contributing to the alarm state. 
 
 
-In [Exercise2-2](../session2/Exercise2-2.md) we will do some simple examples inject traps into OpenNMS.
+In [Exercise-2-2](../session2/Exercise-2-2.md) we will do some simple examples inject traps into OpenNMS.
 
-In [Exercise2-3](../session2/Exercise2-3.md) we will do some simple examples to help explain how  OpenNNMS traps and alarms are configured.
+In [Exercise-2-3](../session2/Exercise-2-3.md) we will do some simple examples to help explain how  OpenNNMS traps and alarms are configured.
 
 In the next [Session 3](../session3/README.md) we will consolidate our learning with a more complex example which imports events from an SNMP MIB.

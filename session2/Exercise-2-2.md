@@ -1,6 +1,6 @@
 # Exercise 2-2 
 
-[Main Menu](../README.md) | [Session 2](../session2/README.md) | [Exercise-2-2](../session1/Exercise-2-2.md)
+[Main Menu](../README.md) | [Session 2](../session2/README.md) | [Exercise-2-2](../session2/Exercise-2-2.md)
 
 # OpenNMS Events
 
@@ -203,7 +203,7 @@ snmptrap -v 2c -c public horizon:1162 ""  .1.3.6.1.4.1.52330.6.2.0.1        .1.3
 
 ```
 
-We will now build an event configuration to match against our new trap in Exercise2-3.
+We will create an event configuration to match against our new trap in [Exercise-2-3](../session2/Exercise-2-3.md)
 
 
 
