@@ -12,6 +12,8 @@ event from UI
 
 event from ReST / Rester
 
+business service monitoring
+
 scriptd example
 
 kafka example - forwarding alarms
