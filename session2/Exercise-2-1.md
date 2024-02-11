@@ -56,6 +56,8 @@ netsnmp_2_1         polinux/snmpd                      "/bootstrap.sh"          
 netsnmp_2_2         polinux/snmpd                      "/bootstrap.sh"          netsnmp_2_2         7 hours ago         Up 7 hours             161/tcp, 0.0.0.0:11461->161/udp
 ```
 
+Note that the minion1 will take a minute to connect to OpenNMS and will show as `unhealthy` in the process list until it does connect so give it time to show up as a node before the next steps.
+
 Lets look at the files inside the OpenNMS horizon container and see they match the folders discussed in the introduction
 
 ```

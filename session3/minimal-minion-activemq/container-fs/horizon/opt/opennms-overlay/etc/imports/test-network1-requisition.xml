@@ -9,11 +9,6 @@
          <monitored-service service-name="ICMP"/>
       </interface>
    </node>
-   <node  foreign-id="docker-host-N001" node-label="docker-host-N001">
-      <interface ip-addr="172.20.2.1" status="1" snmp-primary="P">
-         <monitored-service service-name="ICMP"/>
-      </interface>
-   </node>
    <node foreign-id="chubb_camera_01" node-label="chubb_camera_01">
       <interface ip-addr="172.20.0.103" status="1" snmp-primary="P">
          <monitored-service service-name="ICMP"/>
@@ -37,11 +32,6 @@
    </node>
    <node foreign-id="minion1" node-label="minion1">
       <interface ip-addr="172.20.0.25" status="1" snmp-primary="P">
-         <monitored-service service-name="ICMP"/>
-      </interface>
-   </node>
-   <node foreign-id="docker-host1" node-label="docker-host1">
-      <interface ip-addr="172.20.0.1" status="1" snmp-primary="P">
          <monitored-service service-name="ICMP"/>
       </interface>
    </node>
