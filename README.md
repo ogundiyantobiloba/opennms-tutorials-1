@@ -41,7 +41,15 @@ They should also work on Docker Desktop installed in Windows.
 In order to complete these exercises you will need docker and docker-compose for the containerised exercises. 
 The easiest way to get these packages is to install [docker-desktop](https://www.docker.com/products/docker-desktop/) which is available for Windows, Mac or Linux machines. 
 
-You will also need Java 11, An IDE (Eclipse or Intelij), Maven and git installed on your machine. 
+You will also need Java Open JDK (minimum version 11), An IDE (Eclipse or Intelij), Maven and git installed on your machine. 
+
+[Git for windows](https://git-scm.com/download/win)
+
+[Docker Desktop](https://www.docker.com/products/docker-desktop/)
+
+[Eclipse for Enterprise Java developers](https://www.eclipse.org/downloads/packages/release/2023-12/r/eclipse-ide-enterprise-java-and-web-developers)
+
+[Apache Maven] (https://maven.apache.org/)
 
 ## Forking this repository
 
