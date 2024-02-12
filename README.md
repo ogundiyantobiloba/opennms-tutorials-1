@@ -49,7 +49,7 @@ You will also need Java Open JDK (minimum version 11), An IDE (Eclipse or Inteli
 
 [Eclipse for Enterprise Java developers](https://www.eclipse.org/downloads/packages/release/2023-12/r/eclipse-ide-enterprise-java-and-web-developers)
 
-[Apache Maven] (https://maven.apache.org/)
+[Apache Maven](https://maven.apache.org/)
 
 ## Forking this repository
 
