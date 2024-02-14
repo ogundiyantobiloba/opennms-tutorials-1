@@ -25,3 +25,10 @@
    * Add a Linux system with an SNMP agent using a custom System object identifier
    * Should provide metrics to collect SNMP data collection as scalar
    * Should provide metrics to collect SNMP data collection from a table
+
+
+Fetch the System Object ID from a Linux server
+```
+ssh admin@localhost -p 8101 snmp-walk -l Default 192.168.42.34 .1.3.6.1.2.1.1.2
+[.1.3.6.1.2.1.1.2].[0] = .1.3.6.1.4.1.8072.3.2.10
+```
