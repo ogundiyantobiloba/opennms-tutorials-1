@@ -7,7 +7,7 @@ The files are always called the following names, but the contents vary `CHUBB-TV
 
 ## Events generated directly from the CHUBB-TVBS-CAMERA.mib
 
-[events-generated-from-mib](../events-generated-from-mib/) These files are the result of following the steps to simply parse the CHUBB-TVBS-CAMERA.mib
+[events-generated-from-mib](../example-configurations/events-generated-from-mib/) These files are the result of following the steps to simply parse the CHUBB-TVBS-CAMERA.mib
 
 To load into the running container do the following 
 
@@ -22,7 +22,7 @@ docker compose exec horizon /usr/share/opennms/bin/send-event.pl uei.opennms.org
 
 ## Simple set of alarms created from the CHUBB-TVBS-CAMERA.mib
 
-[simple-alarms-from-mib](../simple-alarms-from-mib/) These files contain a first cut at alarm definitions 
+[simple-alarms-from-mib](../example-configurations/simple-alarms-from-mib/) These files contain a first cut at alarm definitions 
 
 To load into the running container do the following 
 
