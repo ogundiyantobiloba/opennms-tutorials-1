@@ -131,7 +131,7 @@ IMPORTS
 ...
 ```
 
-So in order to use this MIB we must import its dependencies first and since each of the dependencies also requires other MIB files, you may have a bit of trial and error to upload and compile the files in the correct order.
+So in order to use this MIB we must import and compile its dependencies first and since each of the dependencies also requires other MIB files, you may have a bit of trial and error to upload and compile the files in the correct order.
 
 Once you have upload and compiled all of the files, you will be in a position to generate the event definitions as shown here
 
