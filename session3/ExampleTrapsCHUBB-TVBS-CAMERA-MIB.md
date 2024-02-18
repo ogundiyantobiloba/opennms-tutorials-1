@@ -1,5 +1,6 @@
 
-## CHUBB SNMP Traps
+# CHUBB SNMP Example Traps
+
 This page contains example traps for the CHUBB-TVBS-CAMERA-MIB
 
 
