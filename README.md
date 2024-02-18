@@ -3,7 +3,7 @@
 Git Repository of OpenNMS tutorial examples
 
 The repository contains a number of example projects, exercises and an area called [myPracticeCourseWork](../main/myPracticeCourseWork/) for you to create and store your own example work during the course. 
-As you work through the sessions, you should copy the exampel sessions into your own [myPracticeCourseWork](../main/myPracticeCourseWork/) area and work on them there. 
+As you work through the sessions, you should copy the example sessions into your own [myPracticeCourseWork](../main/myPracticeCourseWork/) area and work on them there. 
 That way you can save your work in your own repository while being able to receive updates from the upstream master repository.
 
 Please read and follow the Getting Started instructions before doing anything else.

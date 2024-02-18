@@ -159,6 +159,8 @@ If you select `save event file`, you will see from the log that a new event defi
 2024-02-12T16:29:00-05:00 [INFO] The event's configuration reload operation is being performed.
 ```
 
+## Testing the parsed mib events
+
 OpenNMS should now be able to process the trap we sent previously from the chubb_camera_01.
 Try sending the trap again.
 
@@ -187,7 +189,11 @@ So we can see that even though we only have one `healthChange` trap definition, 
 You will also see that all the generated events still have an `Indeterminate` severity. 
 We have no idea from the event whether a `washerMotorFault` is more or less critical to deal with than a `videoSignal` fault.
 
+## Creating more useful Event and Alarm Definitions
+
 We are now going to turn the event definitions generated from the mib into a more useful configuration which generates alarms with different severities.
+
+### create an overlay configuration in docker compose
 
 First, we need to extract the two event files we have generated so that we can modify and re-inject them as an overlay to the container.
 
@@ -195,11 +201,40 @@ We can copy the files into the local directory using the docker compose cp comma
 
 ```
 docker compose cp horizon:/usr/share/opennms/etc/events/CHUBB-TVBS-CAMERA-MIB.events.xml .
-
 docker compose cp horizon:/usr/share/opennms/etc/eventconf.xml .
-
 ```
 This will copy the files into the root of your project for you to work with.
 
-Example copies of these files are also provided in the  [session3/minimal-minion-activemq/workup-config/events-generated-from-mib](../session3/minimal-minion-activemq/workup-config/events-generated-from-mib) folder'
+**_NOTE:_** Example copies of these raw files are also provided in the [session3/minimal-minion-activemq/workup-config/events-generated-from-mib](../session3/minimal-minion-activemq/workup-config/events-generated-from-mib) folder'
+
+Now place the copied `eventconf.xml` file in the [session3/minimal-minion-activemq/container-fs/horizon/opt/opennms-overlay/etc](../session3/minimal-minion-activemq/container-fs/horizon/opt/opennms-overlay/etc) folder.
+
+And place the `CHUBB-TVBS-CAMERA-MIB.events.xml` file in the [session3/minimal-minion-activemq/container-fs/horizon/opt/opennms-overlay/etc/events](../session3/minimal-minion-activemq/container-fs/horizon/opt/opennms-overlay/etc/events) folder.
+
+(Remember you should be using your copy of the exercise in [/opennms-tutorials-1/myPracticeCourseWork](../../main/myPracticeCourseWork/) )
+
+Going forwards, as you edit these files, you can test them in the running OpenNMS system.
+
+One way to do this is just to restart the docker compose project and the files will be injected.
+
+```
+# restart opennms (don`t use -v or you will wait for the database to initialise)
+cd minimal-minion-activemq
+docker compose down
+docker compose up -d
+```
+OpenNMS will fail to start if there is a syntax error in the files, but you can check the problem by looking at the startup logs.
+
+A faster approach with a running system is just to copy the files into the running container's opennms/etc directory and send an event to OpenNMS which will force a reload of eventd. 
+To do this try;
+
+```
+cd minimal-minion-activemq
+docker compose cp ./container-fs/horizon/opt/opennms-overlay/etc/events/CHUBB-TVBS-CAMERA-MIB.events.xml horizon:/usr/share/opennms/etc/events/
+
+# send an event to reload the daemon
+docker compose exec horizon /usr/share/opennms/bin/send-event.pl uei.opennms.org/internal/reloadDaemonConfig -p 'daemonName Eventd' 
+```
+
+In [Exercise-3-1](../session3/Exercise-3-1.md) we will modify and test the event configuration to add alarms.
 
