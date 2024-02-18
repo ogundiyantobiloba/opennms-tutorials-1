@@ -12,6 +12,9 @@ In this session we will do a worked example using the manufactures published SNM
 Road side cameras are used to provide surveillance for [smart motorways](https://www.highwaysmagazine.co.uk/chubb-launches-new-camera-system-for-smart-motorways/6703) and CHUBB, who manufacture these cameras, have published a MIB for camera event traps sent from their camera control system. 
 In this example we will import this MIB into OpenNMS and create camera alarms.
 
+**_NOTE:_** Disclaimer: This exercise is provided as a training example. The CHUBB MIBs used may not be the latest specified by the manufacturer.
+
+
 ## Getting started
 In this example we will use the same network as we used in [Session 2](../session2/README.md). 
 
@@ -66,7 +69,7 @@ docker compose exec chubb_camera_01 bash
 .1.3.6.1.2.1.1.6.0 = STRING: 0002L
 ```
 
-Ping horizon to make sure you can see it 
+Ping horizon to make sure you can see it.
 
 ```
 ping horizon
@@ -77,9 +80,9 @@ Try sending the following trap from chubb_camera_01 to horizon using netsnmp.
 You should see an unformatted event from chubb_camera_01 in the OpenNMS event list.
 
 ```
-# send a trap
+# send a trap to horizon
 
-snmptrap -v 2c -c public horizon:1162 ""  .1.3.6.1.4.1.52330.6.2.0.1  .1.3.6.1.4.1.52330.6.2.7.0  s xxxx   .1.3.6.1.4.1.52330.6.2.1.0 i 0  .1.3.6.1.4.1.52330.6.2.5.0 i 1
+snmptrap -v 2c -c public horizon:1162 ""  .1.3.6.1.4.1.52330.6.2.0.1    .1.3.6.1.4.1.52330.6.2.1.0 i 0  .1.3.6.1.4.1.52330.6.2.5.0 i 1
 ```
 Do the same for chubb_camera_02 but this time send the trap to minion1
 
@@ -88,9 +91,9 @@ docker compose exec chubb_camera_02 bash
 
 ping minion1
 
-# send a trap
+# send a trap to minion1
 
-snmptrap -v 2c -c public minion1:1162 ""  .1.3.6.1.4.1.52330.6.2.0.1  .1.3.6.1.4.1.52330.6.2.7.0  s xxxx   .1.3.6.1.4.1.52330.6.2.1.0 i 0  .1.3.6.1.4.1.52330.6.2.5.0 i 1
+snmptrap -v 2c -c public minion1:1162 ""  .1.3.6.1.4.1.52330.6.2.0.1    .1.3.6.1.4.1.52330.6.2.1.0 i 0  .1.3.6.1.4.1.52330.6.2.5.0 i 1
 ```
 
 If you are receiving unformatted events in OpenNMS, your connectivity is working fine and we are ready to format the traps.
@@ -133,13 +136,17 @@ IMPORTS
 
 So in order to use this MIB we must import and compile its dependencies first and since each of the dependencies also requires other MIB files, you may have a bit of trial and error to upload and compile the files in the correct order.
 
-Once you have upload and compiled all of the files, you will be in a position to generate the event definitions as shown here
+Once you have upload and compiled all of the files, you will be in a position to generate the event definitions by right clicking on the `CHUBB-TVBS-CAMERA-MIB.mib` file and selecting `generate events` as shown in the image below.
 
 ![alt text](../session3/images/generateEvents.png "Figure generateEvents.png")
 
 We will keep the default base UEI definition as `uei.opennms.org/traps/CHUBB-TVBS-CAMERA-MIB`
 
-If you select save event file, you will see from the log that a new event definition file has been created `CHUBB-TVBS-CAMERA-MIB.events.xml` containing 4 event definitions and a reference to this file has been placed in the `eventconf.xml` file
+The trap definitions in the camera mib will be converted into 4 new OpenNMS events ;
+
+![alt text](../session3/images/GeneratedEvents1.png "Figure GeneratedEvents1.png")
+
+If you select `save event file`, you will see from the log that a new event definition file has been created `CHUBB-TVBS-CAMERA-MIB.events.xml` containing 4 event definitions and that a reference to this file has been placed in the `eventconf.xml` file
 
 ```
 2024-02-12T16:29:00-05:00 [DEBUG] Normalizing event uei.opennms.org/traps/CHUBB-TVBS-CAMERA-MIB/healthChange
@@ -152,17 +159,37 @@ If you select save event file, you will see from the log that a new event defini
 2024-02-12T16:29:00-05:00 [INFO] The event's configuration reload operation is being performed.
 ```
 
-OpenNMS should now be able to process the event we sent previously from the chubb_camera_01
+OpenNMS should now be able to process the trap we sent previously from the chubb_camera_01.
+Try sending the trap again.
 
 ```
 docker compose exec chubb_camera_01 bash
 
-snmptrap -v 2c -c public horizon:1162 ""  .1.3.6.1.4.1.52330.6.2.0.1  .1.3.6.1.4.1.52330.6.2.7.0  s xxxx   .1.3.6.1.4.1.52330.6.2.1.0 i 0  .1.3.6.1.4.1.52330.6.2.5.0 i 1
+snmptrap -v 2c -c public horizon:1162 ""  .1.3.6.1.4.1.52330.6.2.0.1    .1.3.6.1.4.1.52330.6.2.1.0 i 0  .1.3.6.1.4.1.52330.6.2.5.0 i 1
 ```
 
 You should now see new events being generated in OpenNMS.
 
-We need to extract the two event files we have generated so that we can mofdify and re-inject them as an overlay to the container.
+![alt text](../session3/images/chubb-basic-events.png "Figure chubb-basic-events.png")
+
+The trap we sent was a healthChange trap OID `.1.3.6.1.4.1.52330.6.2.0.1` with two varbinds; healthChangeReason `.1.3.6.1.4.1.52330.6.2.1.0`  and faultState `.1.3.6.1.4.1.52330.6.2.5.0`.
+
+The `healthChangeReason` can have one of twelve values corresponding to the nature of the fault:
+
+* panMotor(0) tiltMotor(1) zoomMotor(2) apertureMotor(3) focusMotor(4) wiperMotor(5) heater(6) fluidLevel(7) videoSignal(8) housingTamper(9) washerMotorFault(10) configPlugFault(11) tvbuCameraCommsFault(12) 
+
+and the faultState can have one of two values:
+
+* clear(0) triggered(1).
+
+So we can see that even though we only have one `healthChange` trap definition, it can correspond to the raising or clearing of up to twelve different independent problems which can occur in any combination on the camera.
+
+You will also see that all the generated events still have an `Indeterminate` severity. 
+We have no idea from the event whether a `washerMotorFault` is more or less critical to deal with than a `videoSignal` fault.
+
+We are now going to turn the event definitions generated from the mib into a more useful configuration which generates alarms with different severities.
+
+First, we need to extract the two event files we have generated so that we can modify and re-inject them as an overlay to the container.
 
 We can copy the files into the local directory using the docker compose cp command
 
@@ -174,5 +201,5 @@ docker compose cp horizon:/usr/share/opennms/etc/eventconf.xml .
 ```
 This will copy the files into the root of your project for you to work with.
 
-Example copies of these files are also provided in the  [session3/minimal-minion-activemq/workup-config](../session3/minimal-minion-activemq/workup-config) folder'
+Example copies of these files are also provided in the  [session3/minimal-minion-activemq/workup-config/events-generated-from-mib](../session3/minimal-minion-activemq/workup-config/events-generated-from-mib) folder'
 
