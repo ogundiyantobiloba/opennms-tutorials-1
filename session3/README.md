@@ -205,7 +205,7 @@ docker compose cp horizon:/usr/share/opennms/etc/eventconf.xml .
 ```
 This will copy the files into the root of your project for you to work with.
 
-**_NOTE:_** Example copies of these raw files are also provided in the [session3/minimal-minion-activemq/workup-config/events-generated-from-mib](../session3/minimal-minion-activemq/workup-config/events-generated-from-mib) folder'
+**_NOTE:_** Example copies of these raw files are also provided in the [session3/minimal-minion-activemq/example-configurations/events-generated-from-mib](../session3/minimal-minion-activemq/example-configurations/events-generated-from-mib) folder'
 
 Now place the copied `eventconf.xml` file in the [session3/minimal-minion-activemq/container-fs/horizon/opt/opennms-overlay/etc](../session3/minimal-minion-activemq/container-fs/horizon/opt/opennms-overlay/etc) folder.
 
