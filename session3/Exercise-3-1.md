@@ -9,7 +9,7 @@ You should be able to create traps for all of the possible event combinations de
 
 A set of example configurations as a result of completing this exercise are provided in [Example Configurations](../session3/minimal-minion-activemq/example-configurations/) but try the exercise first before looking at the examples.
 
-## Step 1 - check you can send traps and generte events with the initial config
+## Step 1 - check you can send traps and generate events with the initial config
 
 You should have already copied your initially generated  `eventconf.xml` and `CHUBB-TVBS-CAMERA-MIB.events.xml` files into your docker compose example and restarted OpenNMS.
 
@@ -123,9 +123,13 @@ For all the clearing events, you need to turn them into type 2 alarms by adding 
          auto-clean="false" />
    </event>
 ```
-
 Note that the `clear-key` must reference the fully expanded uei of the raise event which it will be clearing.
 
 ## Step 5 Check that the raise and clear traps create and clear alarms
-
 Having created your configuration, load it into OpenNMS and start sending some new traps to see that you are now getting alarms which raise and clear as expected.
+
+# Summary
+Once we have completed this exercise we have grasped a good understanding of event processing in OpenNMS.
+
+[Session 4](../session4/README.md)  will look at some more advanced event and alarm processing techniques.
+
