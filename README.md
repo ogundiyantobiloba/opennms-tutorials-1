@@ -11,11 +11,11 @@ Please read and follow the Getting Started instructions before doing anything el
 ## Contents
 [session1](../main/session1/) Introduction to OpenNMS
 
-[session2](../main/session2/) 
+[session2](../main/session2/) Introduction to Provisioning OpenNMS
 
-[session3](../main/session3/) 
+[session3](../main/session3/) Worked Example - Alarms and Events
 
-[session4](../main/session4/) 
+[session4](../main/session4/) Further Event and Alarm Enrichment Examples
 
 [session5](../main/session5/) 
 
