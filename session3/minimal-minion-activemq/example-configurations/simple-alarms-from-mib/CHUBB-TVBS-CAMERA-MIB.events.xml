@@ -18,8 +18,8 @@
             <mevalue>1</mevalue>
          </maskelement>
          <varbind>
-             <vbnumber>2</vbnumber>
-             <vbvalue>1</vbvalue>
+            <vbnumber>2</vbnumber>
+            <vbvalue>1</vbvalue>
          </varbind>
       </mask>
       <uei>uei.opennms.org/traps/CHUBB-TVBS-CAMERA-MIB/healthChangeRAISE</uei>
@@ -80,6 +80,7 @@
          <decode varbindvalue="0" varbinddecodedstring="clear" />
          <decode varbindvalue="1" varbinddecodedstring="triggered" />
       </varbindsdecode>
+      <alarm-data reduction-key="%uei%:%dpname%:%nodeid%" alarm-type="1" auto-clean="false" />
    </event>
 
    <event>
@@ -97,8 +98,8 @@
             <mevalue>1</mevalue>
          </maskelement>
          <varbind>
-             <vbnumber>2</vbnumber>
-             <vbvalue>0</vbvalue>
+            <vbnumber>2</vbnumber>
+            <vbvalue>0</vbvalue>
          </varbind>
       </mask>
       <uei>uei.opennms.org/traps/CHUBB-TVBS-CAMERA-MIB/healthChangeCLEAR</uei>
@@ -137,7 +138,7 @@
          healthChangeReason=%parm[#1]%
          faultState=%parm[#2]%&lt;/p>
       </logmsg>
-      <severity>Cleared</severity>
+      <severity>Normal</severity>
       <varbindsdecode>
          <parmid>parm[#1]</parmid>
          <decode varbindvalue="0" varbinddecodedstring="panMotor" />
@@ -159,6 +160,10 @@
          <decode varbindvalue="0" varbinddecodedstring="clear" />
          <decode varbindvalue="1" varbinddecodedstring="triggered" />
       </varbindsdecode>
+      <alarm-data reduction-key="%uei%:%dpname%:%nodeid%" 
+         alarm-type="2"
+         clear-key="uei.opennms.org/traps/CHUBB-TVBS-CAMERA-MIB/healthChangeRAISE:%dpname%:%nodeid%" 
+         auto-clean="false" />
    </event>
 
    <!-- ************************* -->
@@ -180,8 +185,8 @@
             <mevalue>2</mevalue>
          </maskelement>
          <varbind>
-             <vbnumber>1</vbnumber>
-             <vbvalue>1</vbvalue>
+            <vbnumber>1</vbnumber>
+            <vbvalue>1</vbvalue>
          </varbind>
       </mask>
       <uei>uei.opennms.org/traps/CHUBB-TVBS-CAMERA-MIB/tamperDetectedRAISE</uei>
@@ -206,6 +211,7 @@
          <decode varbindvalue="0" varbinddecodedstring="clear" />
          <decode varbindvalue="1" varbinddecodedstring="triggered" />
       </varbindsdecode>
+      <alarm-data reduction-key="%uei%:%dpname%:%nodeid%" alarm-type="1" auto-clean="false" />
    </event>
 
    <event>
@@ -223,8 +229,8 @@
             <mevalue>2</mevalue>
          </maskelement>
          <varbind>
-             <vbnumber>1</vbnumber>
-             <vbvalue>0</vbvalue>
+            <vbnumber>1</vbnumber>
+            <vbvalue>0</vbvalue>
          </varbind>
       </mask>
       <uei>uei.opennms.org/traps/CHUBB-TVBS-CAMERA-MIB/tamperDetectedCLEAR</uei>
@@ -243,12 +249,16 @@
          tamperDetected trap received
          tamperState=%parm[#1]%&lt;/p>
       </logmsg>
-      <severity>Cleared</severity>
+      <severity>Normal</severity>
       <varbindsdecode>
          <parmid>parm[#1]</parmid>
          <decode varbindvalue="0" varbinddecodedstring="clear" />
          <decode varbindvalue="1" varbinddecodedstring="triggered" />
       </varbindsdecode>
+      <alarm-data reduction-key="%uei%:%dpname%:%nodeid%" 
+         alarm-type="2"
+         clear-key="uei.opennms.org/traps/CHUBB-TVBS-CAMERA-MIB/tamperDetectedRAISE:%dpname%:%nodeid%" 
+         auto-clean="false" />
    </event>
 
    <!-- ************************* -->
@@ -269,8 +279,8 @@
             <mevalue>3</mevalue>
          </maskelement>
          <varbind>
-             <vbnumber>2</vbnumber>
-             <vbvalue>1</vbvalue>
+            <vbnumber>2</vbnumber>
+            <vbvalue>1</vbvalue>
          </varbind>
       </mask>
       <uei>uei.opennms.org/traps/CHUBB-TVBS-CAMERA-MIB/logicInputChangeRAISE</uei>
@@ -300,6 +310,7 @@
          <decode varbindvalue="0" varbinddecodedstring="clear" />
          <decode varbindvalue="1" varbinddecodedstring="triggered" />
       </varbindsdecode>
+      <alarm-data reduction-key="%uei%:%dpname%:%nodeid%" alarm-type="1" auto-clean="false" />
    </event>
 
    <event>
@@ -317,8 +328,8 @@
             <mevalue>3</mevalue>
          </maskelement>
          <varbind>
-             <vbnumber>2</vbnumber>
-             <vbvalue>0</vbvalue>
+            <vbnumber>2</vbnumber>
+            <vbvalue>0</vbvalue>
          </varbind>
       </mask>
       <uei>uei.opennms.org/traps/CHUBB-TVBS-CAMERA-MIB/logicInputChangeCLEAR</uei>
@@ -342,12 +353,16 @@
          logicInput=%parm[#1]%
          logicInputState=%parm[#2]%&lt;/p>
       </logmsg>
-      <severity>Cleared</severity>
+      <severity>Normal</severity>
       <varbindsdecode>
          <parmid>parm[#2]</parmid>
          <decode varbindvalue="0" varbinddecodedstring="clear" />
          <decode varbindvalue="1" varbinddecodedstring="triggered" />
       </varbindsdecode>
+      <alarm-data reduction-key="%uei%:%dpname%:%nodeid%" 
+         alarm-type="2"
+         clear-key="uei.opennms.org/traps/CHUBB-TVBS-CAMERA-MIB/logicInputChangeRAISE:%dpname%:%nodeid%" 
+         auto-clean="false" />
    </event>
 
 
@@ -369,8 +384,8 @@
             <mevalue>4</mevalue>
          </maskelement>
          <varbind>
-             <vbnumber>1</vbnumber>
-             <vbvalue>1</vbvalue>
+            <vbnumber>1</vbnumber>
+            <vbvalue>1</vbvalue>
          </varbind>
       </mask>
       <uei>uei.opennms.org/traps/CHUBB-TVBS-CAMERA-MIB/commsStateChangeRAISE</uei>
@@ -395,6 +410,7 @@
          <decode varbindvalue="0" varbinddecodedstring="good" />
          <decode varbindvalue="1" varbinddecodedstring="faulty" />
       </varbindsdecode>
+      <alarm-data reduction-key="%uei%:%dpname%:%nodeid%" alarm-type="1" auto-clean="false" />
    </event>
 
    <event>
@@ -412,8 +428,8 @@
             <mevalue>4</mevalue>
          </maskelement>
          <varbind>
-             <vbnumber>1</vbnumber>
-             <vbvalue>0</vbvalue>
+            <vbnumber>1</vbnumber>
+            <vbvalue>0</vbvalue>
          </varbind>
       </mask>
       <uei>uei.opennms.org/traps/CHUBB-TVBS-CAMERA-MIB/commsStateChangeCLEAR</uei>
@@ -432,11 +448,15 @@
          commsStateChange trap received
          commsStateReason=%parm[#1]%&lt;/p>
       </logmsg>
-      <severity>Cleared</severity>
+      <severity>Normal</severity>
       <varbindsdecode>
          <parmid>parm[#1]</parmid>
          <decode varbindvalue="0" varbinddecodedstring="good" />
          <decode varbindvalue="1" varbinddecodedstring="faulty" />
       </varbindsdecode>
+      <alarm-data reduction-key="%uei%:%dpname%:%nodeid%" 
+         alarm-type="2"
+         clear-key="uei.opennms.org/traps/CHUBB-TVBS-CAMERA-MIB/commsStateChangeRAISE:%dpname%:%nodeid%" 
+         auto-clean="false" />
    </event>
 </events>
