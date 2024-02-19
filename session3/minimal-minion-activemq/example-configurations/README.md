@@ -48,7 +48,14 @@ docker compose exec horizon /usr/share/opennms/bin/send-event.pl uei.opennms.org
 
 [full-alarms-from-mib](../example-configurations/full-alarms-from-mib/) These files contain a first cut at alarm definitions 
 
+---
+**NOTE**
+
+This example has slightly different UEI definitions because it it taken from an historical proof of concept where the alarms were fully decoded. 
+
 In this case the alarms are fully decoded except for the logicInputChange events where varbind 1 is the logic input id and we don't know what this value means so we cannot assign a unique event.
+
+---
 
 To load into the running container do the following 
 
