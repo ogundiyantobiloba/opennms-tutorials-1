@@ -46,7 +46,7 @@ docker compose exec horizon /usr/share/opennms/bin/send-event.pl uei.opennms.org
 
 ## Fully Decoded set of alarms created from the CHUBB-TVBS-CAMERA.mib
 
-[full-alarms-from-mib](../example-configurations/full-alarms-from-mib/) These files contain a first cut at alarm definitions 
+[full-alarms-from-mib](../example-configurations/full-alarms-from-mib/) These files contain fully decoded alarm definitions 
 
 ---
 **NOTE**
