@@ -22,8 +22,8 @@
       <uei>uei.opennms.org/traps/CHUBB-TVBS-CAMERA-MIB/healthChange/controller</uei>
       <event-label>CONTROLLER CHUBB-TVBS-CAMERA-MIB defined trap event</event-label>
       <descr>
-&lt;p>This notification is sent when one or more of the health
-         information changes. Show the fault item and its state. &lt;/p>&lt;table>
+&lt;p>This notification is sent from the camera controller when one or more of the health
+         information changes for a controlled camera. Show the fault item and its state. &lt;/p>&lt;table>
    &lt;tr>&lt;td>&lt;b>
 
    cameraIdentifier&lt;/b>&lt;/td>&lt;td>
@@ -55,12 +55,12 @@
    &lt;/p>&lt;/td>&lt;/tr>&lt;/table>
    </descr>
       <logmsg dest="logndisplay">&lt;p>
-   healthChange trap received
+   CAMERA CONTROLLER healthChange trap received
    cameraIdentifier=%parm[#1]%
    healthChangeReason=%parm[#2]%
    faultState=%parm[#3]%&lt;/p>
    </logmsg>
-      <severity>Warning</severity>
+      <severity>Normal</severity>
       <varbindsdecode>
          <parmid>parm[#2]</parmid>
          <decode varbindvalue="0" varbinddecodedstring="panMotor"/>
