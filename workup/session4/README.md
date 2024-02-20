@@ -14,10 +14,4 @@ event from ReST / Rester
 
 business service monitoring
 
-scriptd example
 
-kafka example - forwarding alarms
-
-advanced
-
-introduction to drools rules
