@@ -21,6 +21,8 @@ These traps match the event configuration here [etc/events/CAMERA-CONTROLLER-MIB
 You need to design an event translator configuration which will translate the new traps into the old events with the correct nodeid corresponding to the `cameraIdentifier` in the traps.
 
 A starting point is provided here [etc/translator-configuration.xml](../session4/minimal-minion-activemq/container-fs/horizon/opt/opennms-overlay/etc/translator-configuration.xml) 
+This is based upon the standard translatoions incldued with OpenNMS. 
+A starting point is provided the end of the file `Translations FOR CAMERA CONTROLLER EVENTS`.
 
 You will find the answer here (but try the exercise first).
 [Exercise-4-1 Answer](../session4/Exercise4-1-answer.md)
