@@ -16,7 +16,7 @@ The traps sent from the `camera-controller` follow exactly the same pattern as t
 
 Example traps are provided in [CAMERA-CONTROLLER Trap Examples](../session4/TrapExamplesCAMERA-CONTROLLER.md)
 
-These traps match the event configuration here [CAMERA-CONTROLLER-MIB.events.xml](../session4/minimal-minion-activemq/container-fs/horizon/opt/opennms-overlay/etc/CAMERA-CONTROLLER-MIB.events.xml) 
+These traps match the event configuration here [etc/events/CAMERA-CONTROLLER-MIB.events.xml](../session4/minimal-minion-activemq/container-fs/horizon/opt/opennms-overlay/etc/events/CAMERA-CONTROLLER-MIB.events.xml) 
 
 You need to design an event translator configuration which will translate the new traps into the old events with the correct nodeid corresponding to the `cameraIdentifier` in the traps.
 
