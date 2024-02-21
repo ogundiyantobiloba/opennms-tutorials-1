@@ -2,9 +2,6 @@
 
 [Main Menu](../README.md) | [Session 6](../session6/README.md)
 
-TBD
-
-
 # Collecting from an SNMP Table
 
 ## Step 1: Create a resource type for entries in the table

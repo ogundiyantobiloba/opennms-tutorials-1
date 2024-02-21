@@ -111,5 +111,5 @@ docker compose exec core ls share/rrd/snmp/fs/linux-server/linux-01
 
 ### Task 3: Create RRD graph definition to visualise the metric
 
-- [ ] Create a custom graph definiton from the `snmp-graph.properties.d` directory
+- [ ] Create a custom graph definition from the `snmp-graph.properties.d` directory
 - [ ] Verify if you can see the graph in the Node Level Performance data
