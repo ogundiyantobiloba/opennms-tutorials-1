@@ -1,6 +1,6 @@
 # Exercise 4-1 
 
-[Main Menu](../README.md) | [Session 4](../session3/README.md) | [Exercise-4-1](../session4/Exercise-4-1.md)
+[Main Menu](../README.md) | [Session 4](../session4/README.md) | [Exercise-4-1](../session4/Exercise-4-1.md)
 
 In this exercise we will translate received traps into a set of modified traps using the [event translator](https://docs.opennms.com/horizon/33/operation/deep-dive/events/event-translator.html).
 
@@ -16,3 +16,6 @@ The traps sent from the `camera-controller` follow exactly the same pattern as t
 
 You need to design an event translator configuration which will translate the new traps into the old events with the correct nodeid corresponding to the 
 `cameraIdentifier` in the traps.
+
+You will find the answer here (but try the exercise first) 
+[Exercise-4-1 Answer](../session4/Exercise4-1-answer.md)
