@@ -113,3 +113,12 @@ docker compose exec core ls share/rrd/snmp/fs/linux-server/linux-01
 
 - [ ] Create a custom graph definition from the `snmp-graph.properties.d` directory
 - [ ] Verify if you can see the graph in the Node Level Performance data
+
+## Requested topics from last session
+
+* Timezone configuration
+* Collectd filter
+* Frequency of data collection and RRD files
+* MIB parsing
+* Thresholding
+* REST API calls for measurements
