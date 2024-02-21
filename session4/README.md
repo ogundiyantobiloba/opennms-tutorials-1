@@ -21,7 +21,7 @@ The [Event Translator](https://docs.opennms.com/horizon/33/operation/deep-dive/e
 
 The [Business Service Monitor]([https://docs.opennms.com/horizon/33/operation/deep-dive/events/event-translator.html](https://docs.opennms.com/horizon/32/operation/deep-dive/bsm/introduction.html)) allows a service topology to be created which associates alarms and service outages from a set of nodes in order to calculate the business impact of detected problems.
 
-[Exercise-4-2](../session4/Exercise-4-2.md) walks through the process of creating a business service monitoring configuration for the cameras monitored in [Exercise-4-1](../session4/Exercise-4-1.md) .
+[Exercise-4-2](../session4/Exercise-4-2.md) walks through the process of creating a business service monitoring configuration for the cameras monitored in [Exercise-4-1](../session4/Exercise-4-1.md).
 
 
 

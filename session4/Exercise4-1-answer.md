@@ -39,5 +39,20 @@ If a simple alarm configuration is adopted which uses the varbind paramameter wi
 
 ---
 
+If you inject a trap, you will see two sets of events and alarms are generated.
+
+```
+#### panMotor raise
+snmptrap -v 2c -c public horizon:1162 ""  .1.3.6.1.4.1.52330.6.2.0.1        .1.3.6.1.4.1.52330.6.2.7.0 s camera_008   .1.3.6.1.4.1.52330.6.2.1.0 i 0  .1.3.6.1.4.1.52330.6.2.5.0 i 1
+
+#### panMotor clear
+snmptrap -v 2c -c public horizon:1162 ""  .1.3.6.1.4.1.52330.6.2.0.1        .1.3.6.1.4.1.52330.6.2.7.0 s camera_008   .1.3.6.1.4.1.52330.6.2.1.0 i 0  .1.3.6.1.4.1.52330.6.2.5.0 i 0
+```
+
+Firstly an event is generated corresponding to the `camera-controller` and a second event is generated corresponding to the node label defined in the cameraIdentifier oid  `.1.3.6.1.4.1.52330.6.2.7.0 s camera_008`
+
+Unfortunately, there is no simple way to avoid creating the `camera-controller` events.
+
+![alt text](../session4/images/eventTransalatorEvents.png "Figure eventTransalatorEvents.png")
 
 
