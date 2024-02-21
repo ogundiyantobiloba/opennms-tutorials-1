@@ -7,6 +7,8 @@ In this exercise we will translate received traps into a set of modified traps u
 Imagine that multiple cameras from the examples in [Session 3](../session3/README.md) are controlled from a single `camera-controller`. 
 The cameras themselves are not directly manageable from OpenNMS but the `camera-controller` monitors the cameras and will send traps to OpenNMS if it detects any problems with any of the cameras.
 
+The cameras and camera controllers are defined in the requistion 
+
 The operator wishes to show the status of all the cameras on a map, so they need to be represented as OpenNMS nodes which may or may not have alarms associated with them.
 The camera nodes are themselves not monitored by OpenNMS, so they are in effect `dummy nodes` which can have alarms associated with them. 
 
