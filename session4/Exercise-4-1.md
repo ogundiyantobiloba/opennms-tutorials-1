@@ -14,8 +14,13 @@ Each camera has a unique `cameraIdentifier` to identify it in the `camera-contro
 
 The traps sent from the `camera-controller` follow exactly the same pattern as the traps in the previous exercise but they all have an extra string varbind which contains the cameraIdentifier.
 
-You need to design an event translator configuration which will translate the new traps into the old events with the correct nodeid corresponding to the 
-`cameraIdentifier` in the traps.
+Example traps are provided in [CAMERA-CONTROLLER Trap Examples](../session4/TrapExamplesCAMERA-CONTROLLER.md)
 
-You will find the answer here (but try the exercise first) 
+These traps match the event configuration here [CAMERA-CONTROLLER-MIB.events.xml](../session4/minimal-minion-activemq/container-fs/horizon/opt/opennms-overlay/etc/CAMERA-CONTROLLER-MIB.events.xml) 
+
+You need to design an event translator configuration which will translate the new traps into the old events with the correct nodeid corresponding to the `cameraIdentifier` in the traps.
+
+A starting point is provided here [etc/translator-configuration.xml](../session4/minimal-minion-activemq/container-fs/horizon/opt/opennms-overlay/etc/translator-configuration.xml) 
+
+You will find the answer here (but try the exercise first).
 [Exercise-4-1 Answer](../session4/Exercise4-1-answer.md)
