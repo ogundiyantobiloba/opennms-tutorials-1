@@ -9,7 +9,6 @@
       </security>
    </global>
    
-   <event-file>events/CHUBB-TVBS-CAMERA-MIB.events.xml</event-file>
    <event-file>events/CAMERA-CONTROLLER-MIB.events.xml</event-file>
    
    <event-file>events/opennms.snmp.trap.translator.events.xml</event-file>
