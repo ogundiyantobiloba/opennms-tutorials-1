@@ -24,6 +24,22 @@ volumes:
 
 services:
 
+  nginx:
+    image: nginx:1.23-alpine
+    container_name: nginx
+    hostname: nginx
+    restart: unless-stopped
+    volumes:
+      - ./container-fs/nginx/conf.d:/etc/nginx/conf.d
+      - ./container-fs/nginx/certs:/etc/ssl/certs
+      - ./container-fs/nginx/private:/etc/ssl/private
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      frontend:
+        ipv4_address: 172.20.0.5
+
   database:
     image: ${DOCKER_REGISTRY:-docker.io}/postgres:${POSTGRES_VERSION:-13}
     container_name: database
