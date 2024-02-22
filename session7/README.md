@@ -50,7 +50,7 @@ These can be scraped by OpenNMS to create graphs using the following configurati
 
 [etc/http-datacollection-config.xml](../session7/minimal-minion-activemq/container-fs/horizon/opt/opennms-overlay/etc/http-datacollection-config.xml)
 
-[snmp-graph.properties.d/nginx-graph.properties](../session7/minimal-minion-activemq/container-fs/horizon/opt/opennms-overlay/etc/snmp-graph.properties.d/nginx-graph.propertiesl)
+[snmp-graph.properties.d/nginx-graph.properties](../session7/minimal-minion-activemq/container-fs/horizon/opt/opennms-overlay/etc/snmp-graph.properties.d/nginx-graph.properties)
 
 
 
