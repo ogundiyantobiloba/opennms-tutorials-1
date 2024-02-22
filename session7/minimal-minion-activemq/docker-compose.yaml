@@ -33,12 +33,42 @@ services:
       - ./container-fs/nginx/conf.d:/etc/nginx/conf.d
       - ./container-fs/nginx/certs:/etc/ssl/certs
       - ./container-fs/nginx/private:/etc/ssl/private
+      - ./container-fs/nginx/html:/usr/share/nginx/html
     ports:
       - "80:80"
       - "443:443"
     networks:
-      frontend:
+      N000:
         ipv4_address: 172.20.0.5
+
+  grafana:
+    image: ${DOCKER_REGISTRY:-docker.io}/grafana/grafana:${GRAFANA_VERSION:-latest}
+    container_name: grafana
+    hostname: grafana
+    environment:
+      TZ: ${TIMEZONE:-America/New_York}
+      GF_SECURITY_ADMIN_PASSWORD: mypass
+      GF_INSTALL_PLUGINS: opennms-opennms-app,grafana-piechart-panel,neocat-cal-heatmap-panel,briangann-datatable-panel
+      GF_SERVER_HTTP_PORT: 3000
+      GF_SERVER_PROTOCOL: http
+      GF_SERVER_DOMAIN: localhost:80
+      GF_SERVER_ROOT_URL: http://localhost:80/grafana/
+      GF_SERVER_SERVER_FROM_SUB_PATH: true
+
+    volumes:
+      - data-grafana:/var/lib/grafana
+      - ./container-fs/grafana/provisioning:/etc/grafana/provisioning/
+      - ./container-fs/grafana/conf/conf.ini:/conf/conf.ini
+    ports:
+      - "3000:3000/tcp"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 100M
+    networks:
+      N000:
+        ipv4_address: 172.20.0.20
 
   database:
     image: ${DOCKER_REGISTRY:-docker.io}/postgres:${POSTGRES_VERSION:-13}
