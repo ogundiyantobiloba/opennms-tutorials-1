@@ -181,6 +181,8 @@ docker compose exec -u root linux-03 stress-ng -c 1 -l 55 # Simulate ~55% CPU us
 curl -u admin http://localhost:8980/opennms/rest/measurements/node%5B6%5D.nodeSnmp%5B%5D/CpuRawUser?start=-7200000&maxrows=30&aggregation=AVERAGE
 ```
 
+REST API call examples can be used from `rest-examples` directory using the REST API tool [Bruno](https://www.usebruno.com).
+
 ## Exercise 5.2: Collecting from an SNMP Table
 
 ### Step 1: Create a resource type for entries in the table
