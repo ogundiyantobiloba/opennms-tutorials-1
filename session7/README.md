@@ -70,6 +70,7 @@ THe following diagram illustrates creating the nginx capture groups
 
 ## Grafana
 
+[Exercise-7-1](../session7/Exercise-7-1.md) Walks through creating a simple Grafana Dashboard.
 
 ## Business Service Monitor
 
