@@ -6,7 +6,16 @@
 
 This final session will pull together what we have learnt and introduce a few new topics.
 
-In this example we will introduce grafana and an nginx proxy in a revised [docker-compose.yaml](../session7/minimal-minion-activemq/docker-compose.yaml)
+This session covers
+* HTTPS terminating proxy for OpenNMS using Nginx
+* Nginx  monitoring using HttpDataCollector
+* Business Service Monitoring
+* Brief introduction to Drools
+* Brief introduction to Scriptd
+
+[Session 7 Video](https://youtu.be/-0Io3K9Tzjc)
+
+In this example we will introduce grafana and an nginx proxy in a revised netowrk configuration [docker-compose.yaml](../session7/minimal-minion-activemq/docker-compose.yaml)
 
 ![alt text](../session7/images/examplenetwork3.png "Figure examplenetwork3.png")
 
