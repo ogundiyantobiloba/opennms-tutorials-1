@@ -34,6 +34,7 @@ You will also be able to see NGINX statistics at http://localhost/nginx_status
 ## Nginx Data Collection
 
 Nginx can produce statistics at a known location.
+
 ```
 http://localhost/nginx_status
 Active connections: 2 
@@ -52,7 +53,11 @@ These can be scraped by OpenNMS to create graphs using the following configurati
 
 [snmp-graph.properties.d/nginx-graph.properties](../session7/minimal-minion-activemq/container-fs/horizon/opt/opennms-overlay/etc/snmp-graph.properties.d/nginx-graph.properties)
 
+A useful tool to help creating regular expressions is https://regex101.com/
 
+THe following diagram illustrates creating the nginx capture groups 
+
+![alt text](../session7/images/TestingNginxRegex.png "Figure TestingNginxRegex.png")
 
 
 
