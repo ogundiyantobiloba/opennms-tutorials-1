@@ -178,6 +178,7 @@ services:
       N001:
         ipv4_address: 172.20.2.101
 
+
   netsnmp_2_2:
     image: polinux/snmpd
     container_name: netsnmp_2_2
@@ -189,4 +190,3 @@ services:
     networks:
       N001:
         ipv4_address: 172.20.2.102
-

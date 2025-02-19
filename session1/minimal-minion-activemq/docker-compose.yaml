@@ -1,10 +1,9 @@
 ---
-version: '3'
 
-# using fixed ip addresses so opennms provisoning config works
+# using fixed ip addresses so opennms provisioning config works
 # to see all network use docker network ls
 # to see config use docker network inspect minimal-minion-activemq_N000
-# note gateway is 172.20.0.1 
+# note gateway is 172.20.0.1
 networks:
   N000:
     ipam:
@@ -43,7 +42,7 @@ services:
       retries: 3
     networks:
       N000:
-        ipv4_address: 172.20.0.10
+        ipv4_address: 172.20.0.10    # a static ip for the postgres
 
   horizon:
     image: ${DOCKER_REGISTRY:-docker.io}/${DOCKER_ORG:-opennms}/${HORIZON_OCI:-horizon}:${ONMS_VERSION:-bleeding}
@@ -56,7 +55,7 @@ services:
     environment:
       TZ: ${TIMEZONE:-America/New_York}
       # JAVA_OPTS matches default in container plus enable debugger
-      # extenal jdb connection from windows using  jdb -connect com.sun.jdi.SocketAttach:hostname=localhost,port=8001
+      # external jdb connection from windows using  jdb -connect com.sun.jdi.SocketAttach:hostname=localhost,port=8001
       JAVA_OPTS: -Xmx1024m -XX:MaxMetaspaceSize=512m -agentlib:jdwp=transport=dt_socket,server=y,address=*:8001,suspend=n
     volumes:
       - data-opennms:/opennms-data
@@ -143,7 +142,7 @@ services:
     networks:
       N000:
         ipv4_address: 172.20.0.102
-        
+
   # snmp containers in network N001
   netsnmp_2_1:
     image: polinux/snmpd
@@ -168,4 +167,3 @@ services:
     networks:
       N001:
         ipv4_address: 172.20.2.102
-
