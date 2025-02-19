@@ -23,6 +23,4 @@ Please read and follow the Getting Started instructions before doing anything el
 
 [session7](../main/session7/) Additional Topics and wrap up
 
-[myPracticeCourseWork](../main/myPracticeCourseWork) This is where you should create and save your own practice projects.
-
 [pristine-opennms-config-files](../main/pristine-opennms-config-files/) Untouched OpenNMS configuration files for reference.
